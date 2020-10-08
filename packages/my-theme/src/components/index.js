@@ -1,25 +1,41 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, Global, css } from "frontity";
+import Home from "./home";
+import AboutMe from "./aboutme";
+import Resume from "./resume";
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
+const Main = styled.div`
+  height: 100%;
+  width: 100%;
 `;
 
-const Column1 = styled.div`
-  background-color: blue;
-`;
+const Root = ({ state }) => {
+  const data = state.source.get(state.router.link);
+  const page = state.source[data.type][data.id];
 
-const Column2 = styled.div`
-  display: grid;
-  grid-template-rows: 50% 50%;
-`;
-
-const Root = () => {
-  <Container>
-    <Column1></Column1>
-    <Column2></Column2>
-  </Container>;
+  const pageFromLink = (link) => {
+    switch (link) {
+      case "/":
+        return <Home />;
+      case "/about-me/":
+        return <AboutMe />;
+      case "/resume/":
+        return <Resume />;
+    }
+    console.log(link);
+  };
+  return (
+    <>
+      <Global
+        styles={css`
+          * {
+            margin: 0;
+          }
+        `}
+      />
+      <Main>{pageFromLink(state.router.link)}</Main>
+    </>
+  );
 };
 
 export default connect(Root);

@@ -1,4 +1,4 @@
-import Root from "./components/index";
+import Root from "./components";
 
 export default {
   name: "my-theme",
