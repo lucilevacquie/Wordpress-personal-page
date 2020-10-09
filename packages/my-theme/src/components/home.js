@@ -62,7 +62,7 @@ const UnderlineAnim = keyframes`
 const Underline = styled.div`
   width: 500px;
   height: 1rem;
-  background-color: ${darkRed};
+  background-color: rgb(184, 62, 75);
   position: relative;
   top: 7rem;
   left: 2rem;
