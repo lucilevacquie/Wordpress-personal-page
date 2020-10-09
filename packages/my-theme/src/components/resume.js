@@ -1,13 +1,8 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import Header from "./header";
 
 const Container = styled.div``;
-
-const Header = styled.header``;
-
-const Title = styled.h1`
-  text-align: center;
-`;
 
 const Column1 = styled.div`
   text-align: justify;
@@ -44,9 +39,7 @@ const Resume = ({ state }) => {
   const page = state.source[data.type][data.id];
   return (
     <Container>
-      <Header>
-        <Title>{page.title.rendered}</Title>
-      </Header>
+      <Header />
 
       <Content>
         <Column1
