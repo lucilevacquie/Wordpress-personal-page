@@ -16,6 +16,7 @@ const settings = {
       state: {
         source: {
           api: "http://192.168.1.139/wp-json",
+          homepage: "home",
         },
       },
     },

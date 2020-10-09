@@ -5,7 +5,7 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   text-align: center;
 `;
 
