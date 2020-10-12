@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled, keyframes } from "frontity";
 import "../style.css";
 import Contact from "./contact";
+import SmallContact from "./smallContact";
 
 const colors = {
   darkGreen: "#1D3D38",
@@ -11,9 +12,28 @@ const colors = {
 };
 
 const Container = styled.div`
+  height: 100vh;
+  @media (min-width: 768px) {
+    display: block;
+  }
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-rows: 80% 20%;
+  }
+  @media (max-width: 576px) {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 85% 15%;
+  }
+`;
+
+const BigDeviceMenu = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   height: 100vh;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Column1 = styled.div`
@@ -22,19 +42,69 @@ const Column1 = styled.div`
 
 const Greetings = styled.div`
   position: relative;
-  top: 5rem;
-  left: 3rem;
+  padding-top: 5rem;
+  padding-left: 3rem;
   font-size: 5rem;
   color: white;
   p {
     font-size: 3rem;
-    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+  @media (max-width: 1330px) {
+    font-size: 4.5rem;
+  }
+  @media (max-width: 1170px) {
+    font-size: 4.2rem;
+  }
+  @media (max-width: 992px) {
+    font-size: 4rem;
+    padding-top: 6rem;
+    p {
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    padding-top: 7rem;
+    p {
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+    padding-top: 3rem;
+    padding-left: 2.5rem;
+    p {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
+const MediumDeviceMenu = styled.div`
+  display: grid;
+  grid-template-columns: 55% 45%;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  @media (max-width: 576px) {
+    display: none;
+  }
+`;
+
+const SmallDeviceMenu = styled.div`
+  display: none;
+  @media (max-width: 576px) {
+    display: grid;
+    grid-template-rows: 40% 30% 30%;
   }
 `;
 
 const Column2 = styled.div`
   display: grid;
   grid-template-rows: 50% 50%;
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 const Box = styled.a`
@@ -50,25 +120,55 @@ const Box = styled.a`
 
 const Title = styled.h1`
   position: relative;
-  top: 4rem;
-  left: 3rem;
+  padding-top: 4rem;
+  padding-left: 3rem;
   font-size: 5rem;
+  @media (max-width: 992px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: 576px) {
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 const UnderlineAnim = keyframes`
   from{left: -600px;}
-  to{left: 2rem;}
+  to{left: 0;}
 `;
 
 const Underline = styled.div`
-  width: 500px;
+  width: 600px;
   height: 1rem;
   background-color: rgb(184, 62, 75);
   position: relative;
-  top: 7rem;
-  left: 2rem;
+  margin-top: 7rem;
+  margin-left: 3rem;
   animation-name: ${UnderlineAnim};
-  animation-duration: 3s;
+  animation-duration: 2s;
+  @media (max-width: 1330px) {
+    width: 520px;
+    margin-top: 3rem;
+  }
+  @media (max-width: 1170px) {
+    width: 430px;
+    margin-top: 3rem;
+  }
+  @media (max-width: 992px) {
+    width: 300px;
+    margin-top: 3rem;
+  }
+  @media (max-width: 768px) {
+    width: 220px;
+    margin-top: 2rem;
+  }
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 const Home = ({ state }) => {
@@ -77,21 +177,56 @@ const Home = ({ state }) => {
 
   return (
     <Container>
-      <Column1>
-        <Greetings
-          dangerouslySetInnerHTML={{ __html: page.content.rendered }}
-        ></Greetings>
-        <Underline />
-        <Contact />
-      </Column1>
-      <Column2>
+      <BigDeviceMenu>
+        <Column1>
+          <Greetings
+            dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+          ></Greetings>
+          <Underline />
+          <Contact />
+        </Column1>
+        <Column2>
+          <Box href="/about-me" color={colors.red}>
+            <Title>About me</Title>
+          </Box>
+          <Box href="/resume" color={colors.green}>
+            <Title>Resume</Title>
+          </Box>
+        </Column2>
+      </BigDeviceMenu>
+
+      <MediumDeviceMenu>
+        <Column1>
+          <Greetings
+            dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+          ></Greetings>
+          <Underline />
+          <Contact />
+        </Column1>
+        <Column2>
+          <Box href="/about-me" color={colors.red}>
+            <Title>About me</Title>
+          </Box>
+          <Box href="/resume" color={colors.green}>
+            <Title>Resume</Title>
+          </Box>
+        </Column2>
+      </MediumDeviceMenu>
+
+      <SmallDeviceMenu>
+        <Column1>
+          <Greetings
+            dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+          ></Greetings>
+        </Column1>
         <Box href="/about-me" color={colors.red}>
           <Title>About me</Title>
         </Box>
         <Box href="/resume" color={colors.green}>
           <Title>Resume</Title>
         </Box>
-      </Column2>
+      </SmallDeviceMenu>
+      <SmallContact />
     </Container>
   );
 };

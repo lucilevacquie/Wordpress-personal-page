@@ -32,42 +32,28 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 10rem;
-  margin-left: 2rem;
-  @media (max-width: 1170px) {
-    margin-top: 5rem;
-    margin-left: 2rem;
-  }
-  @media (max-width: 992px) {
-    margin-top: 5rem;
-    margin-left: 0.5rem;
-  }
-  @media (max-width: 768px) {
+  justify-content: center;
+  background-color: #883736;
+  @media (min-width: 768px) {
     display: none;
   }
 `;
 
 const Link = styled.a`
   padding: 1rem;
-  @media (max-width: 1170px) {
-    padding: 0.9rem;
-  }
-  @media (max-width: 992px) {
+  @media (max-width: 576px) {
     padding: 0.7rem;
   }
 `;
 
 const Icon = styled.img`
-  width: 100px;
-  @media (max-width: 1170px) {
-    width: 80px;
-  }
-  @media (max-width: 992px) {
-    width: 70px;
+  width: 80px;
+  @media (max-width: 576px) {
+    width: 60px;
   }
 `;
 
-const Contact = () => {
+const SmallContact = () => {
   return (
     <Container>
       {Data.map((item) => (
@@ -79,4 +65,4 @@ const Contact = () => {
   );
 };
 
-export default connect(Contact);
+export default connect(SmallContact);
