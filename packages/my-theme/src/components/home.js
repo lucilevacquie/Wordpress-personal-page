@@ -55,6 +55,7 @@ const Greetings = styled.div`
   }
   @media (max-width: 1170px) {
     font-size: 4.2rem;
+    padding-right: 1.5rem;
   }
   @media (max-width: 992px) {
     font-size: 4rem;
@@ -108,7 +109,6 @@ const Column2 = styled.div`
 `;
 
 const Box = styled.a`
-  display: flex;
   text-decoration: none;
   color: white;
   background-color: ${(props) => props.color};
@@ -119,7 +119,6 @@ const Box = styled.a`
 `;
 
 const Title = styled.h1`
-  position: relative;
   padding-top: 4rem;
   padding-left: 3rem;
   font-size: 5rem;
@@ -134,6 +133,12 @@ const Title = styled.h1`
     padding-left: 2.5rem;
     font-size: 2rem;
   }
+`;
+
+const Blabla = styled.div`
+  font-size: 2rem;
+  padding-left: 3rem;
+  padding-top: 3rem;
 `;
 
 const UnderlineAnim = keyframes`
@@ -188,9 +193,13 @@ const Home = ({ state }) => {
         <Column2>
           <Box href="/about-me" color={colors.red}>
             <Title>About me</Title>
+            <Blabla>Want to know my journey and what I am capable of?</Blabla>
           </Box>
           <Box href="/resume" color={colors.green}>
             <Title>Resume</Title>
+            <Blabla>
+              An overview of my main professional experiences and knowledge.
+            </Blabla>
           </Box>
         </Column2>
       </BigDeviceMenu>
