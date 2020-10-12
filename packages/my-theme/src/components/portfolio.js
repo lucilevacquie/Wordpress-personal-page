@@ -1,33 +1,37 @@
 import React from "react";
 import { connect, styled } from "frontity";
-
+import "../style.css";
 import MyWebsite from "../assets/my-website.png";
 import StagingClub from "../assets/the-staging-club.png";
 import MyWebsiteVert from "../assets/my-website-vert.jpeg";
 
 const Data = [
-  (img1 = {
+  {
     src: MyWebsiteVert,
     description: "My personal webpage built with responsive design technique.",
     href: "https://github.com/lucilevacquie/ReactWebsite",
-  }),
-  (img2 = {
+    link: "> Access the whole code just here <",
+  },
+  {
     src: MyWebsite,
     description: "My personal webpage built from scratch using React.",
     href: "https://github.com/lucilevacquie/ReactWebsite",
-  }),
-  (img3 = {
+    link: "> Click to look at the code <",
+  },
+  {
     src: StagingClub,
     description:
       "My first pro bono project: a home staging website, built from scratch using React",
     href: "https://github.com/lucilevacquie/the-staging-club",
-  }),
-  (img4 = {
+    link: "> Curious? Just click! <",
+  },
+  {
     src: StagingClub,
     description:
       "My first pro bono project: a home staging website, built from scratch using React",
     href: "https://github.com/lucilevacquie/the-staging-club",
-  }),
+    link: "> Have a look at the code <",
+  },
 ];
 
 const Container = styled.div`
@@ -50,49 +54,16 @@ const Row1 = styled.div`
   grid-template-columns: 50% 50%;
 `;
 
-const SquareImg = styled.img`
-  width: 400px;
-  height: 330px;
-  padding-bottom: 35px;
-  cursor: pointer;
-`;
-
-const LongHorizImg = styled.img`
-  width: 850px;
-  height: 400px;
-  margin: auto;
-  padding-top: 35px;
-  cursor: pointer;
-`;
-
 const OnHover = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
-  pointer-events: none;
   position: absolute;
   left: 0;
   top: 0;
   align-items: center;
-`;
-
-const LongVertiImgContainer = styled.div`
-  position: relative;
-  width: 400px;
-  height: 800px;
-  cursor: pointer;
-  :hover {
-    ${OnHover} {
-      display: flex;
-    }
-  }
-`;
-
-const LongVertiImg = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 const Wrapper = styled.div`
@@ -117,6 +88,57 @@ const Link = styled.a`
   text-decoration: none;
   text-align: center;
   display: block;
+  padding: 1rem 0;
+`;
+
+const SquareImgContainer = styled.div`
+  position: relative;
+  width: 400px;
+  height: 330px;
+  margin-bottom: 35px;
+  :hover {
+    ${OnHover} {
+      display: flex;
+    }
+  }
+`;
+
+const SquareImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const LongHorizImgContainer = styled.div`
+  position: relative;
+  width: 850px;
+  height: 400px;
+  margin-top: 35px;
+  :hover {
+    ${OnHover} {
+      display: flex;
+    }
+  }
+`;
+
+const LongHorizImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const LongVertiImgContainer = styled.div`
+  position: relative;
+  width: 400px;
+  height: 800px;
+  :hover {
+    ${OnHover} {
+      display: flex;
+    }
+  }
+`;
+
+const LongVertiImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 const Portfolio = () => {
@@ -124,21 +146,51 @@ const Portfolio = () => {
     <Container>
       <Column1>
         <Row1>
-          <SquareImg src={Data.img3.src} style={{ "padding-right": "25px" }} />
-          <SquareImg src={StagingClub} style={{ "padding-left": "25px" }} />
+          <SquareImgContainer>
+            <SquareImg src={Data[2].src} />
+            <OnHover>
+              <Wrapper>
+                <Description>{Data[2].description}</Description>
+                <Link href={Data[2].href} target="_blank">
+                  {Data[2].link}
+                </Link>
+              </Wrapper>
+            </OnHover>
+          </SquareImgContainer>
+
+          <SquareImgContainer style={{ "margin-left": "25px" }}>
+            <SquareImg src={Data[3].src} />
+            <OnHover>
+              <Wrapper>
+                <Description>{Data[3].description}</Description>
+                <Link href={Data[3].href} target="_blank">
+                  {Data[3].link}
+                </Link>
+              </Wrapper>
+            </OnHover>
+          </SquareImgContainer>
         </Row1>
-        <LongHorizImg src={MyWebsite} />
+
+        <LongHorizImgContainer>
+          <LongHorizImg src={Data[1].src} />
+          <OnHover>
+            <Wrapper>
+              <Description>{Data[1].description}</Description>
+              <Link href={Data[1].href} target="_blank">
+                {Data[1].link}
+              </Link>
+            </Wrapper>
+          </OnHover>
+        </LongHorizImgContainer>
       </Column1>
+
       <LongVertiImgContainer>
-        <LongVertiImg src={MyWebsiteVert} />
+        <LongVertiImg src={Data[0].src} />
         <OnHover>
           <Wrapper>
-            <Description>Responsive design</Description>
-            <Link
-              href="https://github.com/lucilevacquie/ReactWebsite"
-              target="_blank"
-            >
-              - The code on my GitHub -
+            <Description>{Data[0].description}</Description>
+            <Link href={Data[0].href} target="_blank">
+              {Data[0].link}
             </Link>
           </Wrapper>
         </OnHover>

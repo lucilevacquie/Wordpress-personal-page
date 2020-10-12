@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import "../style.css";
 import Header from "./header";
 
 const Container = styled.div``;

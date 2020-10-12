@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import "../style.css";
 import BackArrow from "../assets/back-arrow-white.png";
 
 const Anchor = styled.a`

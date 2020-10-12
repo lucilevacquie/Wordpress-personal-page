@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, styled, keyframes } from "frontity";
+import "../style.css";
 import Contact from "./contact";
 
 const colors = {
