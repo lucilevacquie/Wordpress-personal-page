@@ -21,6 +21,9 @@ const Img = styled.img`
 
 const Text = styled.div`
   margin-left: 1rem;
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 const BackHome = () => {
