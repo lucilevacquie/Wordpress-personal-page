@@ -22,7 +22,6 @@ const Root = ({ state }) => {
       case "/resume/":
         return <Resume />;
     }
-    console.log(link);
   };
   return (
     <>

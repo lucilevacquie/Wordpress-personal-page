@@ -4,6 +4,7 @@ import "../style.css";
 import Header from "./header";
 import SmallProfilePicture from "../assets/small-profile-picture.jpg";
 import Portfolio from "./portfolio";
+import SmallContact from "./smallContact";
 
 const Content = styled.div`
   display: grid;
@@ -84,6 +85,8 @@ const AboutMe = ({ state }) => {
           <Portfolio />
         </Row2>
       </Content>
+
+      <SmallContact />
     </>
   );
 };
