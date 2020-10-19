@@ -34,6 +34,7 @@ const Container = styled.div`
   position: relative;
   justify-content: center;
   background-color: #883736;
+  height: 100px;
   @media (min-width: 768px) {
     display: none;
   }

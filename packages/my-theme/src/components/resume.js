@@ -4,7 +4,9 @@ import "../style.css";
 import Header from "./header";
 import SmallContact from "./smallContact";
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: 100%;
+`;
 
 const LaptopResume = styled.div`
   @media (max-width: 576px) {
@@ -54,7 +56,7 @@ const Content = styled.div`
     }
 
     .column2 {
-      padding-top: 5%;
+      padding-top: 1rem;
       padding-left: 5%;
       background-color: #1d3d38;
       color: white;
@@ -65,7 +67,6 @@ const Content = styled.div`
         color: #b83e4b;
       }
       .extra {
-        position: fixed;
         height: 100%;
         padding-right: 2%;
       }
@@ -76,21 +77,24 @@ const Content = styled.div`
   }
 `;
 
-const MobileResume = styled.div``;
-
-const Accordion = styled.div`
+const MobileResume = styled.div`
   display: none;
-  height: 500px;
   @media (max-width: 576px) {
-    display: block;
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    min-height: 100%;
   }
 `;
 
+const Accordion = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const Post = styled.div`
-  display: grid;
-  grid-template-rows: 1fr ${(props) => (props.index ? "1fr" : "0")};
-  height: ${(props) => (props.index ? "100%" : "33%")};
-  overflow: hidden;
+  margin: 1rem;
 `;
 
 const PostTitle = styled.div`
@@ -101,6 +105,7 @@ const PostTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1.5rem;
 `;
 
 const PostContent = styled.div`
@@ -110,7 +115,6 @@ const PostContent = styled.div`
   line-height: 1.4rem;
   text-align: justify;
   padding: 0 1.5rem;
-  padding-bottom: 10px;
   h3 {
     padding-top: 10px;
   }
@@ -120,6 +124,15 @@ const PostContent = styled.div`
   .wp-block-columns {
     display: flex;
   }
+`;
+
+const Footer = styled.footer`
+  /* position: fixed;
+  height: 100px;
+  width: 100%;
+  bottom: 0;
+  margin: 0; */
+  height: 100%;
 `;
 
 const Resume = ({ state, actions, ...props }) => {
@@ -191,7 +204,9 @@ const Resume = ({ state, actions, ...props }) => {
             </Post>
           ))}
         </Accordion>
-        <SmallContact />
+        <Footer>
+          <SmallContact />
+        </Footer>
       </MobileResume>
     </Container>
   );
