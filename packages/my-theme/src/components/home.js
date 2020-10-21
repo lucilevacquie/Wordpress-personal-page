@@ -42,40 +42,45 @@ const Column1 = styled.div`
 
 const Greetings = styled.div`
   position: relative;
-  padding-top: 5rem;
+  padding-top: 3rem;
   padding-left: 3rem;
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
   p {
     font-size: 3rem;
     padding-top: 2rem;
   }
   @media (max-width: 1330px) {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
+    padding-top: 3rem;
+    p {
+      font-size: 1.5rem;
+    }
   }
   @media (max-width: 1170px) {
-    font-size: 4.2rem;
+    font-size: 3.5rem;
     padding-right: 1.5rem;
   }
   @media (max-width: 992px) {
-    font-size: 4rem;
-    padding-top: 6rem;
+    font-size: 3rem;
+    padding-top: 4rem;
     p {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   @media (max-width: 768px) {
-    font-size: 3rem;
-    padding-top: 7rem;
+    font-size: 2.5rem;
+    padding-top: 2rem;
     p {
       font-size: 2rem;
     }
   }
   @media (max-width: 576px) {
     font-size: 1.5rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
     padding-left: 2.5rem;
     p {
+      padding-top: 1rem;
       font-size: 1.5rem;
     }
   }
@@ -119,26 +124,46 @@ const Box = styled.a`
 `;
 
 const Title = styled.h1`
-  padding-top: 4rem;
+  padding-top: 3rem;
   padding-left: 3rem;
   font-size: 5rem;
-  @media (max-width: 992px) {
+  @media (max-width: 1170px) {
     font-size: 4rem;
+    padding-top: 3rem;
+  }
+  @media (max-width: 992px) {
+    font-size: 3rem;
+    padding-top: 3rem;
   }
   @media (max-width: 768px) {
     font-size: 2.5rem;
+    padding-top: 2rem;
   }
   @media (max-width: 576px) {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     padding-left: 2.5rem;
     font-size: 2rem;
   }
 `;
 
 const Blabla = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-left: 3rem;
   padding-top: 3rem;
+  padding-right: 1rem;
+  @media (max-width: 1170px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding-top: 1rem;
+  }
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    padding-left: 2.5rem;
+  }
 `;
 
 const UnderlineAnim = keyframes`
@@ -151,7 +176,7 @@ const Underline = styled.div`
   height: 1rem;
   background-color: rgb(184, 62, 75);
   position: relative;
-  margin-top: 7rem;
+  margin-top: 3.5rem;
   margin-left: 3rem;
   animation-name: ${UnderlineAnim};
   animation-duration: 2s;
@@ -215,9 +240,13 @@ const Home = ({ state }) => {
         <Column2>
           <Box href="/about-me" color={colors.red}>
             <Title>About me</Title>
+            <Blabla>Want to know my journey and what I am capable of?</Blabla>
           </Box>
           <Box href="/resume" color={colors.green}>
             <Title>Resume</Title>
+            <Blabla>
+              An overview of my main professional experiences and knowledge.
+            </Blabla>
           </Box>
         </Column2>
       </MediumDeviceMenu>
@@ -230,9 +259,13 @@ const Home = ({ state }) => {
         </Column1>
         <Box href="/about-me" color={colors.red}>
           <Title>About me</Title>
+          <Blabla>Want to know my journey and what I am capable of?</Blabla>
         </Box>
         <Box href="/resume" color={colors.green}>
           <Title>Resume</Title>
+          <Blabla>
+            An overview of my main professional experiences and knowledge.
+          </Blabla>
         </Box>
       </SmallDeviceMenu>
       <SmallContact />

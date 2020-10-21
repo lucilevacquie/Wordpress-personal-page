@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import "../style.css";
 import Header from "./header";
 import SmallContact from "./smallContact";
@@ -82,19 +82,27 @@ const MobileResume = styled.div`
   @media (max-width: 576px) {
     display: grid;
     grid-template-rows: 100px 1fr 100px;
-    min-height: 100%;
+    height: 100%;
+    min-width: 300px;
   }
 `;
 
 const Accordion = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: ${(props) =>
+    props.oneIsActive ? "1fr" : "repeat(3,1fr"};
 `;
 
 const Post = styled.div`
-  margin: 1rem;
+  display: ${(props) => (props.hide ? "none" : "grid")};
+  grid-template-rows: ${(props) => (props.active ? "115px 1fr" : "1fr")};
+  ${(props) =>
+    props.active &&
+    css`
+      ${PostContent} {
+        display: block;
+      }
+    `};
 `;
 
 const PostTitle = styled.div`
@@ -105,11 +113,12 @@ const PostTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
 `;
 
 const PostContent = styled.div`
-  overflow: hidden;
+  display: none;
+  height: 100%;
+  overflow: auto;
   background-color: ${(props) => props.color};
   font-size: 1rem;
   line-height: 1.4rem;
@@ -127,11 +136,6 @@ const PostContent = styled.div`
 `;
 
 const Footer = styled.footer`
-  /* position: fixed;
-  height: 100px;
-  width: 100%;
-  bottom: 0;
-  margin: 0; */
   height: 100%;
 `;
 
@@ -149,12 +153,16 @@ const Resume = ({ state, actions, ...props }) => {
     posts = categories.items.map(({ type, id }) => state.source[type][id]);
   }
 
-  const [index, setIndex] = useState(0);
-  const checkIndex = (i) => {
-    if (i === index) {
-      return setIndex(0);
+  const [active, setActive] = useState(0);
+  const onClickItem = (i) => {
+    if (i === active) {
+      return setActive(0);
     }
-    return setIndex(i);
+    return setActive(i);
+  };
+
+  const checkHide = (i) => {
+    return active !== 0 && active !== i;
   };
 
   const titleColor = (i) => {
@@ -186,21 +194,19 @@ const Resume = ({ state, actions, ...props }) => {
 
       <MobileResume>
         <Header />
-        <Accordion>
+        <Accordion oneIsActive={active !== 0}>
           {posts.map((item, i) => (
-            <Post key={i}>
+            <Post key={i} hide={checkHide(i + 1)} active={active === i + 1}>
               <PostTitle
-                onClick={() => checkIndex(i + 1)}
+                onClick={() => onClickItem(i + 1)}
                 color={titleColor(i)}
               >
                 {item.title.rendered}
               </PostTitle>
-              {index === i + 1 && (
-                <PostContent
-                  dangerouslySetInnerHTML={{ __html: item.content.rendered }}
-                  color={contentColor(i)}
-                ></PostContent>
-              )}
+              <PostContent
+                dangerouslySetInnerHTML={{ __html: item.content.rendered }}
+                color={contentColor(i)}
+              ></PostContent>
             </Post>
           ))}
         </Accordion>

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import "../style.css";
+import FirstWebsite from "../assets/first-website.png";
 import MyWebsite from "../assets/my-website.png";
 import StagingClub from "../assets/the-staging-club.png";
 import MyWebsiteVert from "../assets/my-website-vert-mobile.jpeg";
@@ -21,10 +22,10 @@ const Data = [
     linkMobile: "> Click to access the code <",
   },
   {
-    src: StagingClub,
+    src: FirstWebsite,
     description:
-      "My first pro bono project: a home staging website, built from scratch using React",
-    href: "https://github.com/lucilevacquie/the-staging-club",
+      "My first project: a personal webpage, built from scratch using HTML and CSS",
+    href: "https://github.com/lucilevacquie/1st-Website",
     link: "> Curious? Just click! <",
     linkMobile: "> Click to access the code <",
   },
@@ -104,6 +105,7 @@ const OnHover = styled.div`
 
 const Wrapper = styled.div`
   align-items: center;
+  padding: 1rem;
   font-size: 1.5rem;
   width: 100%;
   @media (max-width: 992px) {

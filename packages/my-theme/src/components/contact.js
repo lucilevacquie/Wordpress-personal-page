@@ -32,7 +32,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 10rem;
+  margin-top: 3.5rem;
   margin-left: 2rem;
   @media (max-width: 1170px) {
     margin-top: 5rem;
