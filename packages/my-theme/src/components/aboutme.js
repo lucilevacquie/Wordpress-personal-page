@@ -1,6 +1,5 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import "../style.css";
 import Header from "./header";
 import SmallProfilePicture from "../assets/small-profile-picture.jpg";
 import Portfolio from "./portfolio";

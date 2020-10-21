@@ -71,7 +71,7 @@ const Contact = () => {
   return (
     <Container>
       {Data.map((item) => (
-        <Link href={item.href} target="_blank">
+        <Link key={item.href} href={item.href} target="_blank">
           <Icon src={item.src} alt={item.alt} />
         </Link>
       ))}

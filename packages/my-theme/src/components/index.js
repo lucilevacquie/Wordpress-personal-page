@@ -29,6 +29,7 @@ const Root = ({ state }) => {
         styles={css`
           * {
             margin: 0;
+            font-family:'Piazzolla', serif;
           }
           html,
           body,

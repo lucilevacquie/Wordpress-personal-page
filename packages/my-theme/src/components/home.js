@@ -197,7 +197,10 @@ const Underline = styled.div`
     margin-top: 2rem;
   }
   @media (max-width: 576px) {
-    display: none;
+    width: 270px;
+    height: 0.7rem;
+    margin-top: 1rem;
+    margin-left: 2.5rem;
   }
 `;
 
@@ -256,6 +259,7 @@ const Home = ({ state }) => {
           <Greetings
             dangerouslySetInnerHTML={{ __html: page.content.rendered }}
           ></Greetings>
+          <Underline />
         </Column1>
         <Box href="/about-me" color={colors.red}>
           <Title>About me</Title>

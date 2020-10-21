@@ -320,7 +320,7 @@ const Portfolio = () => {
 
       <SmallDeviceLayout>
         {Data.map((item) => (
-          <ImgContainer>
+          <ImgContainer key={item.src}>
             <Image>
               <Img src={item.src}></Img>
             </Image>

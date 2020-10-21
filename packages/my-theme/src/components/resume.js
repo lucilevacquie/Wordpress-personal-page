@@ -122,16 +122,25 @@ const PostContent = styled.div`
   background-color: ${(props) => props.color};
   font-size: 1rem;
   line-height: 1.4rem;
-  text-align: justify;
-  padding: 0 1.5rem;
+  text-align: inherit;
+  padding: 1rem;
   h3 {
     padding-top: 10px;
   }
   h4 {
     padding-top: 5px;
   }
+  ul {
+    padding-left: 1.2rem;
+  }
   .wp-block-columns {
     display: flex;
+  }
+  .column1 {
+    padding-right: 0.5rem;
+  }
+  .column2 {
+    padding-left: 0.5rem;
   }
 `;
 
