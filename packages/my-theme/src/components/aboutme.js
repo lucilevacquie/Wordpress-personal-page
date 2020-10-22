@@ -7,7 +7,7 @@ import SmallContact from "./smallContact";
 
 const Content = styled.div`
   display: grid;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 26% 74%;
 `;
 
 const Row1 = styled.div`
