@@ -90,7 +90,7 @@ const MobileResume = styled.div`
 const Accordion = styled.div`
   display: grid;
   grid-template-rows: ${(props) =>
-    props.oneIsActive ? "1fr" : "repeat(3,1fr"};
+    props.oneIsActive ? "1fr" : "repeat(3,1fr)"};
 `;
 
 const Post = styled.div`

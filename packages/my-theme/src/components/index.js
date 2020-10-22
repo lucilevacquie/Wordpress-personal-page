@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, styled, Global, css } from "frontity";
+import { connect, styled, Global, css, Head } from "frontity";
 import Home from "./home";
 import AboutMe from "./aboutme";
 import Resume from "./resume";
@@ -38,6 +38,11 @@ const Root = ({ state }) => {
           }
         `}
       />
+      <Head>
+      <title>Lucile's WordPress Webpage</title>
+        <meta name="description" content="Personal Page" />
+        <html lang="en" />
+      </Head>
       <Main>{pageFromLink(state.router.link)}</Main>
     </>
   );
