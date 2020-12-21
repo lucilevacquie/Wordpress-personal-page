@@ -204,7 +204,7 @@ const Resume = ({ state, actions, ...props }) => {
       <MobileResume>
         <Header />
         <Accordion oneIsActive={active !== 0}>
-          {posts.map((item, i) => (
+          {posts.reverse().map((item, i) => (
             <Post key={i} hide={checkHide(i + 1)} active={active === i + 1}>
               <PostTitle
                 onClick={() => onClickItem(i + 1)}
